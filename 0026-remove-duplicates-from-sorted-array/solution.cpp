@@ -24,15 +24,8 @@ public:
             nums[i] = nums2[i];
         }
 
-        // Uncomment the following lines if you want to print the modified nums vector
-        // for(int i = 0; i < nums2.size(); i++) {
-        //     cout << nums2[i] << ",";
-        // }
-        // cout << endl;
+    
 
         return nums2.size();
     }
 };
-
-
-
