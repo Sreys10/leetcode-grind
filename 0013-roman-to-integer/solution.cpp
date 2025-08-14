@@ -1,25 +1,28 @@
 class Solution {
 public:
     int romanToInt(string s) {
-        map<char,int>romanmap;
-        romanmap['I']=1;
-        romanmap['V']=5;
-        romanmap['X']=10;
-        romanmap['L']=50;
-        romanmap['C']=100;
-        romanmap['D']=500;
-        romanmap['M']=1000;
-        int result=0;
-        for (auto it = s.begin(); it != s.end(); ++it) { 
-            if (it != s.end() - 1 && romanmap[*it]<romanmap[*(it+1)]){
-                 result -= romanmap[*it]; //subtract only the value of the current character
-                 }
-            else{
-                result+=romanmap[*it];
+        unordered_map<char, int >dt;
+
+        dt['I']=1;
+        dt['V']=5;
+        dt['X']=10;
+        dt['L']=50;
+        dt['C']=100;
+        dt['D']=500;
+        dt['M']=1000;
+        
+
+        int ans=0;
+
+        for (int i=0; i<s.size(); i++){
+            if(dt[s[i]]<dt[s[i+1]]){
+                ans-=dt[s[i]];
+            }else{
+                ans+=dt[s[i]];
             }
-      
+        }
+        return ans;
+
+
     }
-    return result;
-     }
-   
 };
